@@ -3,251 +3,986 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prepe - Mensuration (क्षेत्रमिति) SSC CGL & CPO Notes</title>
+    <title>Prepe - The Ultimate Respiratory Diseases Guide for DMLT</title>
     <style>
         :root {
-            --brand-orange: #fb923c;
-            --brand-orange-dark: #f97316;
-            --brand-orange-light: #fff7ed;
-            --brand-orange-tint: rgba(251, 146, 60, 0.1);
-            --text-dark: #1f2937;
-            --text-medium: #4b5563;
-            --text-light: #6b7280;
+            --orange: #fb923c;
+            --orange-light: #fff7ed;
+            --orange-dark: #f97316;
+            --blue: #3b82f6;
+            --blue-light: #eff6ff;
+            --red: #ef4444;
+            --green: #22c55e;
+            --purple: #8b5cf6;
+            --teal: #14b8a6;
+            --text-dark: #111827;
+            --text-light: #4b5563;
             --bg-white: #ffffff;
-            --bg-light-gray: #f9fafb;
             --border-color: #e5e7eb;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light-gray);
-            color: var(--text-dark);
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-dark);
             line-height: 1.8;
         }
 
-        .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: var(--border-color); z-index: 100; }
-        .progress-bar { height: 6px; background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-dark)); width: 0%; }
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+            border-radius: 0 5px 5px 0;
+        }
 
-        .slide {
+        .slide-container {
             width: 100%;
             max-width: 1080px;
-            height: auto;
-            min-height: auto;
             margin: 0 auto;
-            padding: 50px 30px;
-            box-sizing: border-box;
-            background-color: var(--bg-white);
-            border-bottom: 4px solid var(--border-color);
+            padding: 20px 15px;
+        }
+
+        .slide {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            min-height: auto;
+            height: auto;
+            width: 100%;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            border-radius: 16px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .slide-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .slide-header .brand {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--orange);
+        }
+        .slide-header .slide-number {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            background: #f3f4f6;
+            padding: 8px 15px;
+            border-radius: 999px;
+        }
+
+        .slide-content {
+            width: 100%;
+            flex-grow: 1;
+            display: grid;
+            gap: 30px;
         }
         
-        #slide-1 { min-height: 95vh; justify-content: center; background: linear-gradient(135deg, var(--bg-white) 0%, #fffaef 100%); }
-
-        .slide-container { width: 100%; display: flex; flex-direction: column; gap: 25px; }
-
-        .slide-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-bottom: 15px; border-bottom: 2px solid var(--border-color); }
-        .brand-logo { font-size: 26px; font-weight: 800; color: var(--brand-orange); }
-        .slide-number { font-size: 16px; font-weight: 600; color: var(--text-light); background-color: var(--brand-orange-light); padding: 5px 15px; border-radius: 99px; }
-        .slide-title { font-size: clamp(30px, 4vw, 42px); font-weight: 800; color: var(--text-dark); text-align: center; margin: 15px 0; line-height: 1.3; }
-
-        .content-grid { display: grid; grid-template-columns: 1fr; gap: 30px; width: 100%; }
-        @media (min-width: 768px) { .content-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } .content-grid.col-2 { grid-template-columns: 60% 40%; } }
+        .hero-slide {
+            text-align: center;
+            border: 2px solid var(--orange);
+            background: linear-gradient(145deg, var(--orange-light), #fff, #fff);
+        }
+        .hero-slide h1 {
+            font-size: 60px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero-slide .subtitle {
+            font-size: 22px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s;
+        }
         
-        .main-content { display: flex; flex-direction: column; gap: 20px; }
-        .infographics-panel { display: flex; flex-direction: column; gap: 20px; background-color: var(--brand-orange-light); padding: 20px; border-radius: 16px; border: 1px solid var(--brand-orange-tint); }
+        .fact-tile {
+            background: var(--bg-white);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .fact-tile:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(251, 146, 60, 0.2);
+        }
 
-        .points-list { padding: 0; margin: 0; list-style: none; }
-        .points-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px; }
-        .points-list li .icon { flex-shrink: 0; width: 24px; height: 24px; color: var(--brand-orange); }
-        .points-list li .text-content strong { display: block; font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
-        .points-list li .text-content p { font-size: 15px; color: var(--text-medium); margin: 0; }
+        .scroll-cta {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--orange-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+        .scroll-cta svg { width: 28px; height: 28px; }
 
-        .info-card { background: var(--bg-white); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .info-card h4 { margin: 0 0 15px 0; font-size: 18px; font-weight: 700; color: var(--brand-orange); display: flex; align-items: center; gap: 8px; }
-        .mini-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        .mini-table th, .mini-table td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border-color); }
-        .mini-table th { background-color: var(--brand-orange-tint); font-weight: 600; }
-        .mini-table tr:last-child td { border-bottom: none; }
-        .mini-table tr:nth-child(even) { background-color: var(--bg-light-gray); }
+        h2.slide-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 0;
+            color: var(--text-dark);
+            text-align: left;
+        }
+        
+        h3, h4 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--orange-dark);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--orange);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h4 {
+            font-size: 22px;
+            color: var(--text-dark);
+            border-left-color: var(--blue);
+        }
+        
+        ul { list-style: none; padding: 0; }
+        ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 15px;
+            font-size: 17px;
+            color: var(--text-light);
+        }
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: var(--orange);
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 1;
+        }
+        li strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .info-card {
+            background: #fdfdff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+            border-top: 4px solid var(--orange);
+        }
+        
+        .lab-focus-box, .pro-tip-box {
+            background: var(--blue-light);
+            border: 1px solid var(--blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            border-left: 5px solid var(--blue);
+        }
+        .pro-tip-box {
+            background: #f0fdf4;
+            border-color: var(--green);
+            border-left-color: var(--green);
+        }
+        .lab-focus-box h4, .pro-tip-box h4 {
+            color: #1e40af;
+            border: none;
+            padding-left: 0;
+            font-size: 20px;
+        }
+        .pro-tip-box h4 {
+            color: #15803d;
+        }
+        .lab-focus-box ul li::before { color: var(--blue); }
+        .pro-tip-box ul li::before { color: var(--green); }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .comparison-table th {
+            background-color: var(--orange-light);
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--orange-dark);
+        }
+        .comparison-table tr:hover { background-color: #f9fafb; }
+        
+        .grid-2-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;}
 
-        .formula-card { background: linear-gradient(135deg, var(--text-dark) 0%, #4b5563 100%); color: var(--bg-white); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 8px 20px rgba(31, 41, 55, 0.2); }
-        .formula-card h4 { color: var(--brand-orange); margin: 0 0 10px 0; font-weight: 700; font-size: 20px; }
-        .formula-card code { font-size: 20px; font-weight: 600; font-family: 'Poppins', monospace; background-color: rgba(255, 255, 255, 0.1); padding: 12px; border-radius: 8px; display: block; }
-
-        .example-box { background-color: #f3f4f6; border-left: 4px solid var(--brand-orange); padding: 20px; border-radius: 0 8px 8px 0; margin-top: 10px; }
-        .example-box h5 { margin: 0 0 10px 0; font-size: 18px; font-weight: 700; color: var(--text-dark); }
-        .example-box p { margin: 0 0 10px 0; font-size: 15px; }
-        .example-box .solution { font-weight: 600; color: var(--brand-orange-dark); }
-
-        .bottom-strip { width: 100%; background-color: var(--brand-orange-light); padding: 15px; margin-top: 20px; border-radius: 12px; border: 1px solid var(--brand-orange-tint); text-align: center; font-weight: 600; font-size: 16px; }
-        .bottom-strip strong { color: var(--brand-orange-dark); }
-
-        .hero-title { font-size: clamp(42px, 8vw, 72px); font-weight: 800; color: var(--text-dark); margin: 0; line-height: 1.2; }
-        .hero-subtitle { font-size: clamp(18px, 3vw, 24px); color: var(--brand-orange-dark); font-weight: 600; margin: 10px 0 30px 0; }
-        .fact-tiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px; }
-        .fact-tile { background-color: var(--bg-white); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-dark); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-        .fact-tile:hover { transform: translateY(-5px); box-shadow: 0 10px 20px -5px rgba(251, 146, 60, 0.2); border-color: var(--brand-orange); }
-        .scroll-cta { font-size: 18px; font-weight: 600; color: var(--text-medium); animation: bounce 2s infinite; }
+        /* Section Specific Colors */
+        .hypoxia-section .info-card { border-top-color: var(--blue); }
+        .hypoxia-section h3, .hypoxia-section h4 { border-left-color: var(--blue); color: #2563eb; }
+        .asthma-section .info-card { border-top-color: var(--purple); }
+        .asthma-section h3, .asthma-section h4 { border-left-color: var(--purple); color: #7c3aed; }
+        .pneumothorax-section .info-card { border-top-color: var(--teal); }
+        .pneumothorax-section h3, .pneumothorax-section h4 { border-left-color: var(--teal); color: #0d9488; }
+        .pneumonia-section .info-card { border-top-color: var(--red); }
+        .pneumonia-section h3, .pneumonia-section h4 { border-left-color: var(--red); color: #dc2626; }
+        .tb-section .info-card { border-top-color: var(--green); }
+        .tb-section h3, .tb-section h4 { border-left-color: var(--green); color: #16a34a; }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
     </style>
 </head>
 <body>
 
-    <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+    <div id="progress-bar"></div>
 
-    <!-- Slide 1: Introduction (परिचय) -->
-    <section class="slide" id="slide-1">
-        <div style="text-align: center;">
-            <div class="brand-logo">Prepe</div>
-            <h1 class="hero-title">क्षेत्रमिति (Mensuration)</h1>
-            <p class="hero-subtitle">2D और 3D आकृतियों का सम्पूर्ण और विस्तृत विश्लेषण</p>
-            <div class="fact-tiles">
-                <div class="fact-tile">🎯 SSC CGL/CPO स्पेशल</div>
-                <div class="fact-tile">✅ सबसे स्कोरिंग टॉपिक</div>
-                <div class="fact-tile">📐 ज्यामिति की नींव</div>
-                <div class="fact-tile">📝 कॉन्सेप्ट + फॉर्मूला + शॉर्टकट</div>
-                <div class="fact-tile">📈 बेसिक से एडवांस लेवल</div>
-                <div class="fact-tile">📊 सम्पूर्ण कवरेज</div>
+    <main class="slide-container">
+
+        <!-- SLIDE 1: HERO -->
+        <section class="slide hero-slide">
+            <div class="brand">Prepe</div>
+            <h1>Respiratory System Diseases</h1>
+            <p class="subtitle">डीएमएलटी छात्रों के लिए एक पूर्ण और आसान गाइड। इसमें सभी महत्वपूर्ण मेडिकल टर्म्स, प्रयोगशाला जांच, और रोगों के लक्षणों को सरल भाषा में समझाया गया है।</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 40px; animation: fadeInUp 1s ease-out 0.6s;">
+                <div class="fact-tile">Hypoxia</div><div class="fact-tile">Asthma</div><div class="fact-tile">Pneumothorax</div><div class="fact-tile">Pneumonia</div><div class="fact-tile">Tuberculosis</div>
             </div>
-            <div class="scroll-cta">सीखना शुरू करने के लिए नीचे स्क्रॉल करें ↓</div>
-        </div>
-    </section>
+            <div class="scroll-cta">पूरे नोट्स के लिए नीचे स्क्रॉल करें <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></div>
+        </section>
 
-    <!-- Slide 2: 2डी की मूल अवधारणाएं (Basic 2D Concepts) -->
-    <section class="slide">
-        <div class="slide-container">
-            <div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 2/20</div></div>
-            <h2 class="slide-title">2डी की मूल अवधारणाएं (Basic 2D Concepts)</h2>
-            <div class="content-grid col-2">
-                <div class="main-content">
-                    <ul class="points-list">
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 7h2v5h-2zm0 6h2v2h-2z"/></svg></div><div class="text-content"><strong>परिमाप (Perimeter)</strong><p>किसी भी बंद 2D आकृति की सभी भुजाओं की कुल लम्बाई को उसका परिमाप कहते हैं। यह बाहरी सीमा की माप है।</p></div></li>
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 8h2v2H6zm0 4h2v2H6zm0 4h2v2H6zm4-8h8v2h-8zm0 4h8v2h-8zm0 4h8v2h-8z"/></svg></div><div class="text-content"><strong>क्षेत्रफल (Area)</strong><p>किसी आकृति द्वारा एक समतल पर घेरे गए कुल स्थान को क्षेत्रफल कहते हैं। यह अंदर की जगह की माप है।</p></div></li>
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.2.4-4.7-1.3-6.5-2-2-5-2.4-7.4-1.3L9 6.5 6.5 9 2 4.5l10.4 10.4c1.1-2.4 1.7-5.4 1.3-7.4-1.8 1.8-4.3 2.2-6.5 1.3L19 22.7c.4.4 1 .4 1.4 0l2.3-2.3c.4-.4.4-1 0-1.4z"/></svg></div><div class="text-content"><strong>विकर्ण (Diagonal)</strong><p>यह वह सीधी रेखा है जो किसी बहुभुज के दो आमने-सामने के कोनों (vertices) को जोड़ती है।</p></div></li>
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2L3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5l-3-3H6zm9 13H9v-2h6v2zm0-4H9V9h6v2zm-4-4h2v2h-2V7z"/></svg></div><div class="text-content"><strong>ऊंचाई / लंब (Altitude)</strong><p>किसी शीर्ष से उसकी विपरीत भुजा पर डाला गया 90° का लंब, उस भुजा की ऊंचाई कहलाता है।</p></div></li>
+        <!-- SLIDE 2: HYPOXIA INTRODUCTION -->
+        <section class="slide hypoxia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">1. Hypoxia: Introduction</h2><div class="slide-number">2 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>What is Hypoxia?</h3>
+                    <ul>
+                        <li><strong>मतलब:</strong> यह एक ऐसी हालत है, जिसमें शरीर या उसके किसी हिस्से के <strong>tissues</strong> को पर्याप्त मात्रा में <strong>Oxygen (O₂)</strong> नहीं मिल पाती है।</li>
+                        <li><strong>असर:</strong> ऑक्सीजन की कमी से <strong>cells</strong> का <strong>metabolism</strong> प्रभावित होता है।</li>
+                        <li><strong>कोशिकाओं पर असर:</strong> इससे <strong>ATP production</strong> कम हो जाता है और <strong>cells</strong> को नुकसान पहुँच सकता है।</li>
+                    </ul>
+                    <h3 style="margin-top: 25px;">Classification of Hypoxia</h3>
+                     <ul>
+                        <li>इसे चार मुख्य प्रकारों में बांटा जाता है:</li>
+                        <li><strong>(1) Hypoxic Hypoxia:</strong> धमनियों के खून में <strong>PO₂</strong> कम होने के कारण।</li>
+                        <li><strong>(2) Anemic Hypoxia:</strong> हीमोग्लोबिन की कमी के कारण।</li>
+                        <li><strong>(3) Stagnant Hypoxia:</strong> ऊतकों तक खून का बहाव कम होने के कारण।</li>
+                        <li><strong>(4) Histotoxic Hypoxia:</strong> ऊतकों द्वारा ऑक्सीजन का उपयोग न कर पाने के कारण।</li>
                     </ul>
                 </div>
-                <div class="infographics-panel">
-                    <div class="example-box">
-                        <h5>उदाहरण (Example)</h5>
-                        <p>एक आयताकार मैदान की लम्बाई 10 मीटर और चौड़ाई 8 मीटर है। उसका परिमाप और क्षेत्रफल क्या होगा?</p>
-                        <p class="solution">परिमाप = 2(10+8) = 36 मीटर<br>क्षेत्रफल = 10 × 8 = 80 वर्ग मीटर</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>इकाई रूपांतरण (Unit Conversion)</h4>
-                        <table class="mini-table">
-                            <tbody>
-                                <tr><td>1 मीटर (m)</td><td>100 सेंटीमीटर (cm)</td></tr>
-                                <tr><td>1 वर्ग मीटर (m²)</td><td>10,000 वर्ग सेमी (cm²)</td></tr>
-                                <tr><td>1 किलोमीटर (km)</td><td>1000 मीटर (m)</td></tr>
-                                <tr><td>1 हेक्टेयर</td><td>10,000 वर्ग मीटर (m²)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
-            <div class="bottom-strip"><strong>मुख्य बिंदु:</strong> परिमाप की इकाई 'cm' या 'm' होती है, जबकि क्षेत्रफल की इकाई 'cm²' या 'm²' होती है।</div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Slide 3: त्रिभुज (Triangle) -->
-    <section class="slide">
-        <div class="slide-container">
-            <div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 3/20</div></div>
-            <h2 class="slide-title">त्रिभुज (Triangle) - प्रकार और सूत्र</h2>
-            <div class="content-grid col-2">
-                <div class="main-content">
-                    <ul class="points-list">
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7.77L18.24 18H5.76L12 7.77M12 4L2 20h20L12 4z"/></svg></div><div class="text-content"><strong>समकोण त्रिभुज (Right-angled)</strong><p>क्षेत्रफल = ½ × आधार × लंब। इसमें एक कोण 90° का होता है और पाइथागोरस प्रमेय (a²+b²=c²) लागू होती है।</p></div></li>
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.84L17.11 19H6.89L12 5.84z"/></svg></div><div class="text-content"><strong>समबाहु त्रिभुज (Equilateral)</strong><p>क्षेत्रफल = (√3/4) × भुजा²। इसकी सभी भुजाएं और कोण (60°) बराबर होते हैं। ऊंचाई = (√3/2) × भुजा।</p></div></li>
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20h15L12 2zm0 3.47L16.03 18H7.97L12 5.47z"/></svg></div><div class="text-content"><strong>हीरोन का सूत्र (Heron's Formula)</strong><p>जब तीनों भुजाएं (a,b,c) ज्ञात हों, तो इस सूत्र का उपयोग होता है। यहाँ 's' अर्द्ध-परिमाप है।</p></div></li>
-                         <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 1.07V9h7c0-4.08-3.05-7.44-7-7.93zM4 15c0 4.42 3.58 8 8 8s8-3.58 8-8v-4H4v4zm7-13.93C7.05 1.56 4 4.92 4 9h7V1.07z"/></svg></div><div class="text-content"><strong>अन्य क्षेत्रफल सूत्र</strong><p>जब दो भुजाएं (a, b) और उनके बीच का कोण (C) दिया हो: क्षेत्रफल = ½ ab sin(C).</p></div></li>
+        <!-- SLIDE 3: HYPOXIA TYPES EXPLAINED -->
+        <section class="slide hypoxia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Hypoxia: Types (In Detail)</h2><div class="slide-number">3 / 28</div></div>
+            <div class="slide-content grid-2-col">
+                <div class="info-card">
+                    <h4>1. Hypoxic Hypoxia</h4>
+                    <ul>
+                        <li><strong>मुख्य वजह:</strong> इसमें धमनियों के खून का <strong>Partial Pressure of Oxygen (PaO₂)</strong> कम हो जाता है।</li>
+                        <li><strong>उदाहरण:</strong> अधिक ऊंचाई पर जाना, Pneumonia, COPD.</li>
                     </ul>
                 </div>
-                <div class="infographics-panel">
-                   <div class="formula-card">
-                        <h4>हीरोन का सूत्र</h4>
-                        <code>s = (a+b+c)/2</code>
-                        <code style="margin-top: 10px;">Area = √[s(s-a)(s-b)(s-c)]</code>
-                    </div>
-                     <div class="example-box">
-                        <h5>उदाहरण (Heron's Formula)</h5>
-                        <p>एक त्रिभुज की भुजाएं 13, 14, और 15 cm हैं। क्षेत्रफल ज्ञात करें।</p>
-                        <p>s = (13+14+15)/2 = 21 cm</p>
-                        <p class="solution">क्षेत्रफल = √[21(21-13)(21-14)(21-15)] = √[21×8×7×6] = √7056 = 84 cm²</p>
+                <div class="info-card">
+                    <h4>2. Anemic Hypoxia</h4>
+                     <ul>
+                        <li><strong>मुख्य वजह:</strong> इसमें खून की <strong>Oxygen-Carrying Capacity</strong> कम हो जाती है।</li>
+                        <li><strong>उदाहरण:</strong> Iron Deficiency Anemia, खून का बह जाना, Carbon Monoxide Poisoning.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>3. Stagnant Hypoxia</h4>
+                     <ul>
+                        <li><strong>मुख्य वजह:</strong> इसमें <strong>Tissues</strong> तक खून का बहाव बहुत कम हो जाता है।</li>
+                        <li><strong>उदाहरण:</strong> Heart Failure, Shock, Thrombosis.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>4. Histotoxic Hypoxia</h4>
+                     <ul>
+                        <li><strong>मुख्य वजह:</strong> इसमें कोशिकाएं (<strong>cells</strong>) उन तक पहुँचने वाली ऑक्सीजन का इस्तेमाल नहीं कर पाती हैं।</li>
+                        <li><strong>उदाहरण:</strong> Cyanide Poisoning, ज़्यादा शराब पीना।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: HYPOXIA EFFECTS -->
+        <section class="slide hypoxia-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Effects of Hypoxia on Body</h2><div class="slide-number">4 / 28</div></div>
+             <div class="slide-content grid-2-col">
+                 <div class="info-card">
+                    <h4>Mild to Moderate Effects</h4>
+                    <ul>
+                        <li>(1) मानसिक काम का धीमा होना।</li>
+                        <li>(2) मांसपेशियों की काम करने की क्षमता में कमी।</li>
+                        <li>(3) सोचने समझने की शक्ति में कमी।</li>
+                        <li>(4) हल्का सिरदर्द और चक्कर आना।</li>
+                    </ul>
+                 </div>
+                 <div class="info-card" style="border-top-color:var(--red);">
+                    <h4>Severe Effects (Complications)</h4>
+                    <ul>
+                        <li>(1) बेहोशी या <strong>Coma</strong>.</li>
+                        <li>(2) गंभीर मामलों में मौत भी हो सकती है।</li>
+                        <li>(3) शरीर के ज़रूरी अंगों (जैसे दिमाग, दिल) को हमेशा के लिए नुकसान।</li>
+                        <li>(4) <strong>Cardiac arrhythmias</strong> (दिल की अनियमित धड़कन)।</li>
+                    </ul>
+                 </div>
+             </div>
+        </section>
+
+        <!-- SLIDE 5: HYPOXIA DIAGNOSIS -->
+        <section class="slide hypoxia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Hypoxia: Clinical Features & Diagnosis</h2><div class="slide-number">5 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>Clinical Features</h3>
+                    <ul>
+                        <li><strong>(1) Central Cyanosis (होंठ, जीभ):</strong> यह गंभीर <strong>Hypoxemia</strong> को दिखाता है।</li>
+                        <li><strong>(2) Peripheral Cyanosis (उंगलियां):</strong> यह धीमे खून के बहाव को दिखाता है।</li>
+                         <li><strong>अन्य लक्षण:</strong> <strong>Tachycardia</strong> (दिल की धड़कन बढ़ना), <strong>Tachypnea</strong> (सांस की गति बढ़ना), भ्रम, और गंभीर मामलों में <strong>Coma</strong>.</li>
+                    </ul>
+                    <div class="lab-focus-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>Laboratory Diagnosis</h4>
+                        <ul>
+                            <li><strong>Pulse Oximetry:</strong> यह <strong>Oxygen Saturation (SpO₂)</strong> को मापता है। सामान्य SpO₂ 95-100% होता है।</li>
+                            <li><strong>Arterial Blood Gas (ABG) Analysis:</strong> यह <strong>Hypoxia</strong> की जांच के लिए सबसे बेहतर टेस्ट माना जाता है।</li>
+                            <li><strong>ABG क्या बताता है:</strong> यह <strong>PaO₂, PaCO₂, Blood pH,</strong> और <strong>Bicarbonate (HCO₃⁻)</strong> के स्तर को बिलकुल सटीक रूप से मापता है।</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- SLIDE 6: HYPOXIA MANAGEMENT -->
+        <section class="slide hypoxia-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Hypoxia: Management</h2><div class="slide-number">6 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                     <h3>Management</h3>
+                    <ul>
+                        <li><strong>(1) O₂ therapy:</strong> 
+                            <ul>
+                                <li>यह सबसे पहला और ज़रूरी इलाज है।</li>
+                                <li>रोगी की हालत के अनुसार <strong>Nasal Cannula, Face Mask,</strong> या <strong>Ventilator</strong> से ऑक्सीजन दी जाती है।</li>
+                            </ul>
+                        </li>
+                        <li><strong>(2) Symptomatic treatment:</strong> 
+                             <ul>
+                                <li><strong>Hypoxia</strong> के असली कारण का इलाज करना बहुत ज़रूरी है।</li>
+                                <li>जैसे, <strong>Pneumonia</strong> के लिए <strong>Antibiotics</strong>, <strong>Anemia</strong> के लिए <strong>Blood Transfusion</strong>.</li>
+                                <li>लक्षणों के आधार पर दूसरे सहायक इलाज भी दिए जाते हैं।</li>
+                             </ul>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+        </section>
+
+        <!-- SLIDE 7: ASTHMA INTRODUCTION & PATHOPHYSIOLOGY -->
+        <section class="slide asthma-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">2. Asthma: Introduction & Pathophysiology</h2><div class="slide-number">7 / 28</div></div>
+            <div class="slide-content grid-2-col">
+                <div class="info-card">
+                    <h3>Introduction</h3>
+                    <ul>
+                        <li><strong>मतलब: Asthma</strong>, सांस की नलियों (<strong>Airways</strong>) की एक पुरानी सूजन वाली बीमारी है।</li>
+                        <li><strong>खासियत:</strong> इसमें सांस की नलियों में ज़्यादा संवेदनशीलता (<strong>Airway Hyperresponsiveness</strong>) हो जाती है।</li>
+                        <li><strong>लक्षण:</strong> इससे <strong>Wheezing</strong> (सीटी जैसी आवाज़), सांस फूलना, छाती में जकड़न और खांसी के दौरे बार-बार पड़ते हैं, खासकर रात में या सुबह जल्दी।</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Pathophysiology</h3>
+                    <ul>
+                       <li><strong>1. Sensitization:</strong> जब शरीर पहली बार किसी <strong>Allergen</strong> के संपर्क में आता है, तो <strong>IgE Antibodies</strong> बनती हैं, जो <strong>Mast Cells</strong> से जुड़ जाती हैं।</li>
+                        <li><strong>2. Inflammatory Response:</strong> दोबारा संपर्क होने पर, <strong>Mast Cells</strong> से सूजन पैदा करने वाले पदार्थ (जैसे <strong>Histamine, Leukotrienes</strong>) निकलते हैं।</li>
+                        <li><strong>3. नतीजा:</strong>
+                            <ul>
+                                <li>इससे <strong>Bronchoconstriction</strong> (नलियों का सिकुड़ना) होता है।</li>
+                                <li>साथ ही <strong>Mucus Hypersecretion</strong> (बलगम का ज़्यादा बनना) होता है।</li>
+                                <li>और <strong>Airway Edema</strong> (सांस की नली में सूजन) भी होती है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: ASTHMA ETIOLOGY -->
+        <section class="slide asthma-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Asthma: Etiology (Triggers)</h2><div class="slide-number">8 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>Etiology (Triggers)</h3>
+                    <ul>
+                        <li><strong>(1) Allergen Inhalation:</strong> जानवरों के बाल, घर की धूल, पराग, फफूंद।</li>
+                        <li><strong>(2) Air Pollutants:</strong> धुआं, इत्र, प्रदूषक, सिगरेट का धुआं।</li>
+                        <li><strong>(3) Viral upper respiratory infection</strong></li>
+                        <li><strong>(4) Sinusitis</strong></li>
+                        <li><strong>(5) Exercise and cold dry air</strong></li>
+                        <li><strong>(6) Stress:</strong> मानसिक और भावनात्मक तनाव।</li>
+                        <li><strong>(7) Drugs:</strong> NSAIDs (जैसे Aspirin), Beta-adrenergic blockers.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 9: ASTHMA TYPES -->
+        <section class="slide asthma-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Asthma: Types (In Detail)</h2><div class="slide-number">9 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                    <div class="comparison-table">
+                        <thead><tr><th>प्रकार</th><th>मतलब</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>(1) Allergic Asthma (Extrinsic Asthma)</strong></td><td>इसके लक्षण ख़ास <strong>Allergens</strong> के संपर्क में आने से शुरू होते हैं।</td></tr>
+                            <tr><td><strong>(2) Non-Allergic Asthma (Intrinsic Asthma)</strong></td><td>यह संक्रमण, जलन करने वाले पदार्थ, या तनाव जैसे कारकों से शुरू होती है। यह एलर्जी से संबंधित नहीं है।</td></tr>
+                             <tr><td><strong>(3) Mixed Asthma</strong></td><td>यह Allergic और Non-Allergic दोनों का मिला-जुला रूप है। यह सबसे आम प्रकार है।</td></tr>
+                            <tr><td><strong>(4) Cough-Variant Asthma</strong></td><td>इसमें <strong>Wheezing</strong> या सांस फूलने के बजाय, सिर्फ एक लगातार सूखी खांसी होती है।</td></tr>
+                            <tr><td><strong>(5) Exercise Induced Asthma</strong></td><td>यह शारीरिक काम के दौरान या बाद में होता है।</td></tr>
+                            <tr><td><strong>(6) Nocturnal Asthma</strong></td><td>इसके लक्षण रात के समय बढ़ जाते हैं।</td></tr>
+                            <tr><td><strong>(7) Occupational Asthma</strong></td><td>यह काम करने की जगह पर मौजूद कारकों जैसे लकड़ी का बुरादा, केमिकल्स आदि से होता है।</td></tr>
+                        </tbody>
+                    </table>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- SLIDE 10: ASTHMA DIAGNOSIS -->
+        <section class="slide asthma-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Asthma: Diagnosis</h2><div class="slide-number">10 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>Clinical Features (Symptoms)</h3>
+                    <ul>
+                        <li>(1) <strong>Wheezing</strong> (सांस छोड़ते समय सीटी जैसी आवाज़)</li>
+                        <li>(2) <strong>Dyspnoea</strong> (सांस लेने में कठिनाई)</li>
+                        <li>(3) <strong>Cough</strong> (खांसी)</li>
+                        <li>(4) <strong>Chest tightness</strong> (छाती में जकड़न)</li>
+                        <li>(5) <strong>Secretions may be prolonged</strong> (बलगम देर तक निकलना)</li>
+                        <li>(6) <strong>Secretions may be white, thick, tenacious, gelatinous mucus</strong> (बलगम सफ़ेद, गाढ़ा, चिपचिपा हो सकता है)।</li>
+                    </ul>
+                    <div class="lab-focus-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>Diagnosis</h4>
+                        <ul>
+                            <li><strong>(1) History taking:</strong> मरीज़ से उसकी पूरी जानकारी लेना।</li>
+                            <li><strong>(2) Physical examination:</strong> शारीरिक जांच करना।</li>
+                            <li><strong>(3) Skin allergy testing:</strong> एलर्जी की जांच।</li>
+                            <li><strong>(4) Pulmonary function test (PFT):</strong> यह सबसे महत्वपूर्ण टेस्ट है।</li>
+                            <li><strong>(5) Chest X-ray:</strong> फेफड़ों के दूसरे रोगों की संभावना को खत्म करने के लिए।</li>
+                             <li><strong>(6) ABG or oximetry:</strong> खून में ऑक्सीजन के स्तर की जांच के लिए।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: ASTHMA MANAGEMENT -->
+        <section class="slide asthma-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Asthma: Management</h2><div class="slide-number">11 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>Management</h3>
+                     <ul>
+                        <li>(1) <strong>Adrenergics</strong></li>
+                        <li>(2) <strong>Steroids</strong></li>
+                        <li>(3) <strong>Theophylline</strong></li>
+                        <li>(4) <strong>Hydration by IV fluid</strong></li>
+                        <li>(5) <strong>O₂ mask</strong></li>
+                        <li>(6) <strong>Anticholinergics</strong></li>
+                        <li>(7) <strong>Bronchodilators</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: PNEUMOTHORAX INTRODUCTION -->
+        <section class="slide pneumothorax-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">3. Pneumothorax: Introduction</h2><div class="slide-number">12 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>What is Pneumothorax?</h3>
+                    <ul>
+                        <li><strong>मतलब:</strong> इसका मतलब है <strong>Pleural Space</strong> (फेफड़ों और छाती की दीवार के बीच की जगह) में हवा का भर जाना।</li>
+                        <li><strong>कारण:</strong> यह अपने आप (<strong>spontaneously</strong>) या फेफड़ों या छाती की दीवार पर चोट (<strong>trauma</strong>) के कारण हो सकता है।</li>
+                        <li><strong>Spontaneous वजह:</strong> यह <strong>pleural blebs</strong> (फेफड़ों की सतह पर छोटे हवा के छाले) के फटने के कारण होता है।</li>
+                        <li><strong>Traumatic वजह:</strong> यह बंदूक की गोली या छाती पर भारी चोट लगने से हो सकता है।</li>
+                        <li><strong>नतीजा:</strong> इस हवा के दबाव से फेफड़ा थोड़ा या पूरी तरह से पिचक (<strong>Lung Collapse</strong>) जाता है।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 13: PNEUMOTHORAX TYPES -->
+        <section class="slide pneumothorax-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumothorax: Types</h2><div class="slide-number">13 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                    <h3>Types</h3>
+                     <ul>
+                         <li><strong>Spontaneous:</strong> (Primary, Secondary)</li>
+                         <li><strong>Traumatic:</strong> (Open, Closed, Iatrogenic)</li>
+                         <li><strong>Tension</strong></li>
+                     </ul>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- SLIDE 14: PNEUMOTHORAX DETAILED TYPES -->
+        <section class="slide pneumothorax-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumothorax: Detailed Types</h2><div class="slide-number">14 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                    <h3>Detailed Types</h3>
+                    <ul>
+                        <li><strong>(1) Spontaneous Pneumothorax:</strong>
+                            <ul>
+                                <li>यह अचानक या <strong>pleural blebs</strong> के फटने से होता है।</li>
+                                <li><strong>(a) Primary:</strong> यह स्वस्थ युवाओं में बिना किसी फेफड़े की बीमारी के होता है।</li>
+                                <li><strong>(b) Secondary:</strong> यह फेफड़ों की पुरानी बीमारी (जैसे COPD, TB) की मौजूदगी में होता है।</li>
+                            </ul>
+                        </li>
+                        <li><strong>(2) Traumatic Pneumothorax:</strong>
+                             <ul>
+                                <li>यह बंदूक की गोली या छाती पर भारी चोट लगने से होता है।</li>
+                                <li><strong>(a) Open:</strong> छाती की दीवार में घाव होने से बाहरी हवा अंदर चली जाती है। इसमें <strong>pleural cavity pressure</strong> वायुमंडलीय दबाव से ज़्यादा होता है।</li>
+                                <li><strong>(b) Closed:</strong> छाती की दीवार में छेद या टूटी हुई श्वासनली से हवा का रिसाव होता है। इसमें <strong>pleural cavity pressure</strong> वायुमंडलीय दबाव के बराबर होता है।</li>
+                            </ul>
+                        </li>
+                         <li><strong>(3) Tension Pneumothorax:</strong>
+                            <ul>
+                                <li>यह एक जानलेवा हालत है।</li>
+                                <li>इसमें <strong>pleural pressure</strong> वायुमंडलीय दबाव से बहुत ज़्यादा हो जाता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+        </section>
+
+        <!-- SLIDE 15: PNEUMOTHORAX DIAGNOSIS & MANAGEMENT -->
+        <section class="slide pneumothorax-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumothorax: जांच और इलाज</h2><div class="slide-number">15 / 28</div></div>
+             <div class="slide-content grid-2-col">
+                 <div class="info-card">
+                    <h3>Clinical Features (Symptoms)</h3>
+                    <ul>
+                        <li>(1) <strong>Tachypnoea</strong></li>
+                        <li>(2) <strong>Absent breath sound</strong></li>
+                        <li>(3) <strong>Hypoxemia</strong></li>
+                        <li>(4) <strong>Cyanosis</strong></li>
+                        <li>(5) <strong>Hypercapnia</strong></li>
+                    </ul>
+                    <div class="lab-focus-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>Diagnosis</h4>
+                        <ul>
+                            <li>(1) <strong>History taking</strong></li>
+                            <li>(2) <strong>Physical examination</strong></li>
+                            <li>(3) <strong>Chest X-ray</strong></li>
+                            <li>(4) <strong>CT scan</strong></li>
+                            <li>(5) <strong>PFT (Pulmonary function test)</strong></li>
+                        </ul>
+                    </div>
+                 </div>
+                 <div class="info-card">
+                    <h3>Management</h3>
+                    <ul>
+                        <li><strong>(1) Oxygen administration:</strong> रोगी को सांस लेने में मदद के लिए।</li>
+                        <li><strong>(2) Aspiration:</strong> सुई के माध्यम से हवा निकालना।</li>
+                        <li><strong>(3) Tube thoracostomy:</strong> बड़े <strong>Pneumothorax</strong> के लिए सामान्य इलाज, इसमें छाती में एक ट्यूब डाली जाती है।</li>
+                    </ul>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- SLIDE 16: PNEUMONIA INTRODUCTION & CLASSIFICATION -->
+        <section class="slide pneumonia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">4. Pneumonia: Introduction & Classification</h2><div class="slide-number">16 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                     <h3>Introduction</h3>
+                    <ul>
+                        <li>(1) Pneumonia एक या दोनों फेफड़ों में होने वाला एक संक्रमण है।</li>
+                        <li>(2) Pneumonia <strong>alveoli</strong> में सूजन का कारण बनता है।</li>
+                        <li>(3) <strong>Alveoli</strong> में पानी या मवाद भर जाता है, जिससे सांस लेना मुश्किल हो जाता है।</li>
+                        <li><strong>परिभाषा:</strong> Pneumonia को एक संक्रामक एजेंट के कारण फेफड़े के ऊतकों की सूजन और समेकन के रूप में परिभाषित किया गया है।</li>
+                    </ul>
+                    <h3 style="margin-top:25px;">Classification</h3>
+                     <div class="grid-2-col">
+                        <ul>
+                            <li><h4>Anatomical Classification</h4></li>
+                            <li>(1) <strong>Bronchopneumonia:</strong> यह फेफड़ों को श्वासनलियों (bronchi) के आसपास धब्बों में प्रभावित करता है।</li>
+                            <li>(2) <strong>Lobar Pneumonia:</strong> यह एक संक्रमण है जो केवल फेफड़े के एक लोब या खंड को शामिल करता है।</li>
+                            <li>(3) <strong>Interstitial Pneumonia:</strong> इसमें वह क्षेत्र शामिल होता है जो <strong>alveoli</strong> के बीच में मौजूद होता है।</li>
+                        </ul>
+                        <ul>
+                            <li><h4>Clinical Classification</h4></li>
+                            <li>(1) <strong>Community Acquired Pneumonia</strong></li>
+                            <li>(2) <strong>Hospital Acquired Pneumonia:</strong> इसे ऐसे निमोनिया के रूप में परिभाषित किया गया है जो अस्पताल में भर्ती होने के 48 घंटे या उससे अधिक समय बाद होता है।</li>
+                            <li>(3) <strong>Ventilator Associated Pneumonia:</strong> यह वह निमोनिया है जो एंडोट्रैचियल इंट्यूबेशन के 48-72 घंटे से अधिक समय बाद उत्पन्न होता है।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: PNEUMONIA ETIOLOGY & RISK FACTORS -->
+        <section class="slide pneumonia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumonia: Etiology & Risk Factors</h2><div class="slide-number">17 / 28</div></div>
+            <div class="slide-content grid-2-col">
+                <div class="info-card">
+                    <h3>Etiology (Causes)</h3>
+                    <ul>
+                        <li>(1) <strong>Streptococci pneumonia bacteria</strong></li>
+                        <li>(2) <strong>Virus</strong></li>
+                        <li>(3) <strong>Fungal</strong></li>
+                        <li>(4) <strong>Parasitic</strong></li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Risk Factors</h3>
+                     <ul>
+                        <li>(1) सिगरेट पीना।</li>
+                        <li>(2) ऊपरी श्वसन तंत्र का संक्रमण।</li>
+                        <li>(3) शराब।</li>
+                        <li>(4) <strong>Corticosteroid therapy</strong>.</li>
+                        <li>(5) बुढ़ापा।</li>
+                         <li>(6) हाल ही में हुआ <strong>Influenza</strong> संक्रमण।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 18: PNEUMONIA DIAGNOSIS & MANAGEMENT -->
+        <section class="slide pneumonia-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumonia: Diagnosis & Management</h2><div class="slide-number">18 / 28</div></div>
+            <div class="slide-content grid-2-col">
+                 <div class="info-card">
+                    <h3>Clinical Features (Symptoms)</h3>
+                    <ul>
+                       <li>(1) <strong>High grade fever</strong></li>
+                       <li>(2) <strong>Breathlessness</strong></li>
+                       <li>(3) <strong>Cough productive</strong></li>
+                       <li>(4) <strong>Pleuritic chest pain</strong></li>
+                       <li>(5) <strong>Headache</strong></li>
+                    </ul>
+                 </div>
+                 <div class="info-card">
+                    <h3>Management</h3>
+                    <ul>
+                       <li>(1) <strong>Antibiotic Therapy:</strong> इलाज रोग पैदा करने वाले जीव पर निर्भर करता है।</li>
+                       <li>(2) <strong>Supportive Care:</strong> <strong>Oxygen therapy</strong>, IV fluids, और बुखार कम करने वाली दवाएं।</li>
+                       <li>(3) <strong>Prevention:</strong> <strong>Pneumococcal</strong> और <strong>Influenza</strong> के टीके लगवाना।</li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 19: PNEUMONIA COMPLICATIONS -->
+        <section class="slide pneumonia-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Pneumonia: Complications</h2><div class="slide-number">19 / 28</div></div>
+             <div class="slide-content">
+                <div class="info-card">
+                    <h3>Complications (गंभीर प्रभाव)</h3>
+                    <ul>
+                       <li><strong>Pleural Effusion:</strong> फेफड़ों के चारों ओर पानी का जमा होना।</li>
+                       <li><strong>Lung Abscess:</strong> फेफड़े के ऊतकों का नष्ट होना और मवाद की थैली बनना।</li>
+                       <li><strong>Bacteremia & Sepsis:</strong> खून में संक्रमण का फैलना, जो जीवन के लिए खतरा हो सकता है।</li>
+                       <li><strong>Respiratory Failure:</strong> जब फेफड़े शरीर को पर्याप्त ऑक्सीजन नहीं दे पाते।</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <!-- SLIDE 20: TUBERCULOSIS (TB) INTRODUCTION & RISK FACTORS -->
+        <section class="slide tb-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">5. Tuberculosis (TB): Introduction & Risk Factors</h2><div class="slide-number">20 / 28</div></div>
+             <div class="slide-content grid-2-col">
+                 <div class="info-card">
+                    <h3>Introduction</h3>
+                    <ul>
+                        <li><strong>मतलब:</strong> <strong>Tuberculosis (TB)</strong> एक संभावित घातक संक्रामक रोग है जो शरीर के लगभग किसी भी हिस्से को प्रभावित कर सकता है लेकिन यह मुख्य रूप से फेफड़ों का संक्रमण है।</li>
+                    </ul>
+                    <h3 style="margin-top: 25px;">Etiology (Causes)</h3>
+                     <ul>
+                         <li>(1) <strong>Mycobacterium Tuberculosis</strong> (Human)</li>
+                         <li>(2) <strong>Mycobacterium Bovis</strong> (Animals)</li>
+                     </ul>
+                 </div>
+                  <div class="info-card">
+                    <h3>Risk Factors</h3>
+                     <ul>
+                        <li>(1) कमजोर रोग-प्रतिरोधक क्षमता वाले रोगी।</li>
+                        <li>(2) सक्रिय टीबी वाले किसी व्यक्ति के साथ निकट संपर्क।</li>
+                        <li>(3) नशीली दवाओं का दुरुपयोग और शराब।</li>
+                        <li>(4) खराब स्वच्छता।</li>
+                        <li>(5) अपर्याप्त स्वास्थ्य देखभाल वाले लोग।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: TB PATHOPHYSIOLOGY -->
+        <section class="slide tb-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Pathophysiology</h2><div class="slide-number">21 / 28</div></div>
+            <div class="slide-content">
+                 <div class="info-card">
+                    <h3>Pathophysiology</h3>
+                    <ul>
+                        <li>(1) सूक्ष्मजीव का <strong>droplet nuclei</strong> के माध्यम से प्रवेश।</li>
+                        <li>↓</li>
+                        <li>(2) प्रारंभिक संक्रमण या प्राथमिक संक्रमण।</li>
+                        <li>↓</li>
+                        <li>(3) बैक्टीरिया वायुमार्ग के माध्यम से <strong>alveoli</strong> तक पहुँचता है।</li>
+                        <li>↓</li>
+                        <li>(4) बैक्टीरिया का जमाव और हेरफेर।</li>
+                        <li>↓</li>
+                        <li>(5) बैसिली को रक्त प्रवाह के माध्यम से शरीर के अन्य भागों में भी पहुँचाया जाता है और न्यूट्रोफिल और मैक्रोफेज द्वारा फागोसाइटोसिस किया जाता है।</li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 22: TB TYPES -->
+        <section class="slide tb-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Types (In Detail)</h2><div class="slide-number">22 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                    <h3>Types</h3>
+                    <div class="grid-2-col">
+                        <ul>
+                            <li><h4>Pulmonary TB</h4></li>
+                            <li>यह फेफड़ों को प्रभावित करता है।</li>
+                            <li>उदाहरण: 1. <strong>Primary disease</strong>, 2. <strong>Secondary disease</strong>.</li>
+                        </ul>
+                        <ul>
+                            <li><h4>Extra-Pulmonary TB</h4></li>
+                            <li>यह शरीर के अन्य अंगों को प्रभावित करता है।</li>
+                            <li>उदाहरण: 1. Lymph node TB, 2. Pleural TB, 3. TB of upper airway, 4. Skeletal TB, 5. Gastrointestinal TB, 6. Pericardial TB.</li>
+                        </ul>
+                    </div>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- SLIDE 23: TB DIAGNOSIS -->
+        <section class="slide tb-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Diagnosis (In Detail)</h2><div class="slide-number">23 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                     <h3>Clinical Features (Symptoms)</h3>
+                    <ul>
+                        <li>(1) हल्का बुखार (Low grade fever)</li>
+                        <li>(2) भूख न लगना (Anorexia)</li>
+                        <li>(3) रात को पसीना आना (Night sweats)</li>
+                        <li>(4) थकान (Fatigue)</li>
+                        <li>(5) वजन कम होना (Weight loss)</li>
+                        <li>(6) सांस फूलना (Dyspnea)</li>
+                        <li>(7) सूखी खांसी (Non productive cough)</li>
+                        <li>(8) सीने में दर्द (Chest pain)</li>
+                        <li>(9) बलगम में खून (Hemoptysis)</li>
+                        <li>(10) सीने में जकड़न (Chest tightness)</li>
+                    </ul>
+                    <div class="lab-focus-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>Diagnosis</h4>
+                        <ul>
+                           <li>(1) <strong>History taking</strong></li>
+                           <li>(2) <strong>Physical examination</strong></li>
+                           <li>(3) <strong>Chest X-ray</strong></li>
+                           <li>(4) <strong>CT scan (chest)</strong></li>
+                           <li>(5) <strong>Tuberculin skin test</strong></li>
+                           <li>(6) <strong>Bronchoscopy</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: TB MANAGEMENT -->
+        <section class="slide tb-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Management (Drugs for TB)</h2><div class="slide-number">24 / 28</div></div>
+             <div class="slide-content">
+                 <div class="info-card">
+                    <h3>Management (Drugs for TB)</h3>
+                    <ul><li>Pulmonary TB का इलाज मुख्य रूप से 6-12 महीनों के लिए एंटी-ट्यूबरकुलोसिस एजेंटों से किया जाता है।</li></ul>
+                    <div class="comparison-table">
+                        <thead><tr><th>दवा का प्रकार</th><th>दवा के नाम और खुराक</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>First Line Drug</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>1. Streptomycin (15 mg/kg/day)</li>
+                                        <li>2. Isoniazid (05 mg/kg) (300 mg/day/max)</li>
+                                        <li>3. Rifampicin (10 mg/kg/day)</li>
+                                        <li>4. Pyrazinamide (15-30 mg/kg/day)</li>
+                                        <li>5. Ethambutol (15-20 mg/kg/day)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Second Line Drug</strong></td>
+                                <td>
+                                     <ul>
+                                        <li>1. Capreomycin (15 mg/kg)</li>
+                                        <li>2. Ethionamide (15 mg/kg)</li>
+                                        <li>3. Vitamin D</li>
+                                        <li>4. Cycloserine (15 mg/kg)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- SLIDE 25: TB DRUG SIDE EFFECTS -->
+        <section class="slide tb-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Drug Side Effects</h2><div class="slide-number">25 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>First Line Drugs - Common Side Effects</h3>
+                    <div class="comparison-table">
+                         <thead><tr><th>Drug</th><th>मुख्य Side Effect</th></tr></thead>
+                         <tbody>
+                            <tr><td><strong>Isoniazid (H)</strong></td><td>Peripheral Neuropathy (नसों में झुनझुनी), Hepatitis (लीवर में सूजन)।</td></tr>
+                            <tr><td><strong>Rifampicin (R)</strong></td><td>शरीर के तरल पदार्थ (पेशाब, पसीना) का नारंगी रंग का होना, Hepatitis।</td></tr>
+                            <tr><td><strong>Pyrazinamide (Z)</strong></td><td>Hepatitis, Hyperuricemia (यूरिक एसिड का बढ़ना)।</td></tr>
+                            <tr><td><strong>Ethambutol (E)</strong></td><td>Optic Neuritis (आंखों की नसों में सूजन, जिससे रंग पहचानने में दिक्कत)।</td></tr>
+                            <tr><td><strong>Streptomycin (S)</strong></td><td>Ototoxicity (सुनने में दिक्कत), Nephrotoxicity (किडनी को नुकसान)।</td></tr>
+                         </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: TB TREATMENT REGIMEN -->
+        <section class="slide tb-section">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Treatment Regimen</h2><div class="slide-number">26 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <h3>इलाज की प्रक्रिया</h3>
+                    <ul>
+                        <li>इलाज के दो चरण होते हैं:</li>
+                        <li><strong>1. Intensive Phase (2 महीने):</strong> इस चरण में 4 दवाएं (<strong>HRZE</strong>) दी जाती हैं। इसका मकसद बैक्टीरिया को तेजी से मारना है।</li>
+                        <li><strong>2. Continuation Phase (4 महीने):</strong> इस चरण में 3 दवाएं (<strong>HRE</strong>) दी जाती हैं। इसका मकसद बचे हुए बैक्टीरिया को खत्म करना और रोग को दोबारा होने से रोकना है।</li>
+                    </ul>
+                     <h3 style="margin-top:25px;">DOTS Strategy</h3>
+                    <ul>
+                        <li><strong>DOTS (Directly Observed Treatment, Short-course)</strong> भारत के राष्ट्रीय कार्यक्रम का एक महत्वपूर्ण हिस्सा है।</li>
+                        <li>इसमें एक स्वास्थ्य कार्यकर्ता रोगी को अपनी देखरेख में दवा खिलाता है, ताकि यह पक्का हो सके कि इलाज पूरा हो।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SLIDE 27: TB PREVENTION & CONTROL -->
+        <section class="slide tb-section">
+             <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">TB: Prevention & Control</h2><div class="slide-number">27 / 28</div></div>
+             <div class="slide-content">
+                <div class="info-card">
+                    <h3>बचाव और रोकथाम</h3>
+                    <ul>
+                        <li><strong>BCG Vaccination:</strong> बच्चों को गंभीर टीबी से बचाने के लिए जन्म के समय दिया जाता है।</li>
+                        <li><strong>Early Diagnosis & Treatment:</strong> 
+                            <ul>
+                                <li>रोगी की जल्दी पहचान और पूर्ण उपचार ज़रूरी है।</li>
+                                <li>यह संक्रमण के फैलाव को रोकने का सबसे अच्छा तरीका है।</li>
+                            </ul>
+                        </li>
+                        <li><strong>Infection Control Measures:</strong> अस्पतालों में उचित वेंटिलेशन, UV लाइट का उपयोग, और मास्क पहनना।</li>
+                        <li><strong>Contact Tracing:</strong> रोगी के संपर्क में आए लोगों की जांच करना।</li>
+                        <li><strong>Awareness:</strong> जनता को टीबी के लक्षणों और उपचार के बारे में जानकारी देना।</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <!-- SLIDE 28: FINAL SUMMARY -->
+        <section class="slide">
+            <div class="slide-header"><div class="brand">Prepe</div><h2 class="slide-title">Final Summary</h2><div class="slide-number">28 / 28</div></div>
+            <div class="slide-content">
+                <div class="info-card">
+                    <div class="pro-tip-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>DMLT Pro-Tip: Key Tests</h4>
+                         <ul>
+                            <li><strong>Hypoxia</strong> के लिए हमेशा <strong>ABG</strong> रिपोर्ट को प्राथमिकता दें।</li>
+                            <li><strong>Asthma</strong> के संदेह में, <strong>Spirometry</strong> निर्णायक है।</li>
+                            <li>अचानक छाती के दर्द में, <strong>Pneumothorax</strong> के लिए <strong>Chest X-ray</strong> पहली जांच है।</li>
+                            <li><strong>Pneumonia</strong> में, <strong>Sputum Culture</strong> सही एंटीबायोटिक चुनने में मदद करता है।</li>
+                            <li><strong>TB</strong> के लिए, <strong>CBNAAT</strong> सबसे तेज़ और विश्वसनीय जांचों में से एक है।</li>
+                         </ul>
+                    </div>
+                    <div class="comparison-table" style="margin-top:25px;">
+                        <thead><tr><th>रोग</th><th>खास पहचान</th><th>मुख्य लक्षण</th><th>Gold Standard Lab Test</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Hypoxia</strong></td><td>Tissues में पर्याप्त ऑक्सीजन न होना।</td><td>Cyanosis (त्वचा का नीला होना)</td><td>Arterial Blood Gas (ABG) Analysis</td></tr>
+                            <tr><td><strong>Asthma</strong></td><td>Airways में सूजन और अतिसंवेदनशीलता।</td><td>Wheezing (सीटी जैसी आवाज़)</td><td>Spirometry with Reversibility Test</td></tr>
+                            <tr><td><strong>Pneumothorax</strong></td><td>Pleural जगह में हवा का भर जाना।</td><td>अचानक छाती में दर्द</td><td>Chest X-ray (CXR)</td></tr>
+                            <tr><td><strong>Pneumonia</strong></td><td>फेफड़ों के Parenchyma का संक्रमण।</td><td>बुखार के साथ बलगम वाली खांसी</td><td>Sputum Culture & CXR</td></tr>
+                            <tr><td><strong>Tuberculosis</strong></td><td><em>M. tuberculosis</em> से पुराना संक्रमण।</td><td>लंबी खांसी (>2 हफ़्ते)</td><td>Sputum Culture & CBNAAT</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
     
-    <!-- Slide 4: चतुर्भुज - भाग 1 (Square & Rectangle) -->
-    <section class="slide">
-        <div class="slide-container">
-            <div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 4/20</div></div>
-            <h2 class="slide-title">चतुर्भुज - भाग 1 (Square & Rectangle)</h2>
-            <div class="content-grid">
-                <div class="main-content">
-                    <h4>वर्ग (Square)</h4>
-                    <ul class="points-list">
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3z"/></svg></div><div class="text-content"><strong>गुण (Properties)</strong><p>सभी 4 भुजाएं बराबर, सभी कोण 90°, विकर्ण बराबर और एक दूसरे को 90° पर समद्विभाजित करते हैं।</p></div></li>
-                    </ul>
-                    <div class="formula-card"><code>क्षेत्रफल = भुजा² = ½ × विकर्ण²</code><code>परिमाप = 4 × भुजा</code><code>विकर्ण = भुजा × √2</code></div>
-                </div>
-                <div class="main-content">
-                    <h4>आयत (Rectangle)</h4>
-                     <ul class="points-list">
-                        <li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3v12h18V6zm-2 10H5V8h14v8z"/></svg></div><div class="text-content"><strong>गुण (Properties)</strong><p>आमने-सामने की भुजाएं बराबर, सभी कोण 90°, विकर्ण बराबर होते हैं और एक दूसरे को समद्विभाजित करते हैं।</p></div></li>
-                    </ul>
-                    <div class="formula-card"><code>क्षेत्रफल = लंबाई × चौड़ाई</code><code>परिमाप = 2(लंबाई + चौड़ाई)</code><code>विकर्ण = √(l² + b²)</code></div>
-                </div>
-            </div>
-             <div class="bottom-strip"><strong>विशेष कॉन्सेप्ट:</strong> किसी कमरे की चारों दीवारों का क्षेत्रफल = 2(लंबाई + चौड़ाई) × ऊँचाई।</div>
-        </div>
-    </section>
-
-    <!-- Slide 5: चतुर्भुज - भाग 2 (Parallelogram & Rhombus) -->
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 5/20</div></div><h2 class="slide-title">चतुर्भुज - भाग 2 (Parallelogram & Rhombus)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2H2v16h2V4h16V2zM6 6v16h16V6H6zm2 2h12v12H8V8z"/></svg></div><div class="text-content"><strong>समानांतर चतुर्भुज (Parallelogram)</strong><p>आमने-सामने की भुजाएं बराबर और समानांतर होती हैं। क्षेत्रफल = आधार × ऊँचाई।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12l10 10 10-10L12 2zm0 18.17L3.83 12 12 3.83 20.17 12 12 20.17z"/></svg></div><div class="text-content"><strong>समचतुर्भुज (Rhombus)</strong><p>सभी 4 भुजाएं बराबर होती हैं। विकर्ण एक दूसरे को 90° पर काटते हैं। क्षेत्रफल = ½ × d₁ × d₂।</p></div></li></ul><div class="example-box"><h5>उदाहरण (Rhombus)</h5><p>एक समचतुर्भुज की भुजा 5 cm और एक विकर्ण 8 cm है। उसका क्षेत्रफल ज्ञात करें।</p><p>4×(5)² = 8² + d₂² => 100 = 64 + d₂² => d₂²=36 => d₂=6 cm</p><p class="solution">क्षेत्रफल = ½ × 8 × 6 = 24 cm²</p></div></div><div class="infographics-panel"><div class="info-card"><h4>महत्वपूर्ण गुण (Rhombus)</h4><p>समचतुर्भुज की भुजा (a) और विकर्णों (d₁, d₂) में यह संबंध होता है:</p></div><div class="formula-card" style="padding:15px"><code>4a² = d₁² + d₂²</code></div></div></div></div></section>
-    
-    <!-- Slide 6: चतुर्भुज - भाग 3 (Trapezium & Kite) -->
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 6/20</div></div><h2 class="slide-title">चतुर्भुज - भाग 3 (Trapezium & Kite)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 18V6l-5-4H7L2 6v12h2v-9l4-3h6l4 3v9h2zM12 15l-4-3h8l-4 3z"/></svg></div><div class="text-content"><strong>समलंब चतुर्भुज (Trapezium)</strong><p>इसकी सम्मुख भुजाओं का सिर्फ एक जोड़ा समानांतर (parallel) होता है।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 15 10-15L12 2zm0 2.24L19.76 7 12 18.24 4.24 7 12 4.24z"/></svg></div><div class="text-content"><strong>पतंग (Kite)</strong><p>आसन्न भुजाओं के दो जोड़े बराबर होते हैं। एक विकर्ण दूसरे को 90° पर समद्विभाजित करता है। क्षेत्रफल = ½ × d₁ × d₂।</p></div></li></ul><div class="example-box"><h5>उदाहरण (Trapezium)</h5><p>एक समलंब की समानांतर भुजाएं 12cm और 8cm हैं, और उनके बीच की दूरी 6cm है। क्षेत्रफल क्या होगा?</p><p class="solution">क्षेत्रफल = ½ × (12+8) × 6 = 60 cm²</p></div></div><div class="infographics-panel"><div class="formula-card"><h4>समलंब का क्षेत्रफल</h4><code>½ × (समानांतर भुजाओं का योग) × ऊँचाई</code></div></div></div></div></section>
-
-    <!-- Slide 7: वृत्त और अर्धवृत्त (Circle & Semicircle) -->
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 7/20</div></div><h2 class="slide-title">वृत्त और अर्धवृत्त (Circle & Semicircle)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg></div><div class="text-content"><strong>वृत्त (Circle)</strong><p>क्षेत्रफल = πr²। परिधि (circumference) = 2πr। यह उन सभी बिंदुओं का समूह है जो एक निश्चित बिंदु से समान दूरी पर होते हैं।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12h10V2z"/></svg></div><div class="text-content"><strong>अर्धवृत्त (Semicircle)</strong><p>क्षेत्रफल = ½ πr²। परिमाप = πr + 2r (व्यास जोड़ना न भूलें)।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-9h4v4h-4z"/></svg></div><div class="text-content"><strong>वृत्ताकार वलय (Circular Ring)</strong><p>क्षेत्रफल = π(R² - r²), जहाँ R बाहरी और r आंतरिक त्रिज्या है।</p></div></li></ul></div><div class="infographics-panel"><div class="example-box"><h5>उदाहरण (पहिया)</h5><p>एक पहिए की त्रिज्या 35 cm है। 880 मीटर की दूरी तय करने में यह कितने चक्कर लगाएगा?</p><p>1 चक्कर = 2πr = 2×(22/7)×35 = 220 cm = 2.2 m</p><p class="solution">चक्करों की संख्या = कुल दूरी / 1 चक्कर की दूरी = 880 / 2.2 = 400 चक्कर।</p></div></div></div></div></section>
-    
-    <!-- Slide 8 to 20 -->
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 8/20</div></div><h2 class="slide-title">त्रिज्यखंड और वृत्तखंड (Sector & Segment)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4.41 3.59-8 8-8v8H4z"/></svg></div><div class="text-content"><strong>त्रिज्यखंड (Sector)</strong><p>यह वृत्त का वह हिस्सा है जो दो त्रिज्याओं और चाप से बनता है (जैसे पिज्जा का एक टुकड़ा)। क्षेत्रफल = (θ/360°) × πr²।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12c0-1.54.36-2.98 1-4.28V4h4.28c1.3-0.64 2.74-1 4.28-1s2.98.36 4.28 1H20v3.72c0.64 1.3 1 2.74 1 4.28zM4 12c0 4.41 3.59 8 8 8s8-3.59 8-8-3.59-8-8-8-8 3.59-8 8z"/></svg></div><div class="text-content"><strong>वृत्तखंड (Segment)</strong><p>यह एक जीवा (chord) और चाप के बीच का क्षेत्र होता है। क्षेत्रफल = त्रिज्यखंड का क्षेत्रफल - त्रिभुज का क्षेत्रफल।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div><div class="text-content"><strong>घड़ी की सुइयां</strong><p>मिनट की सुई 1 मिनट में 6° घूमती है। घंटे की सुई 1 मिनट में 0.5° घूमती है।</p></div></li></ul></div><div class="infographics-panel"><div class="example-box"><h5>उदाहरण (घड़ी)</h5><p>सुबह 7:20 बजे, घड़ी की घंटे और मिनट की सुइयों के बीच का कोण क्या है?</p><p>मिनट की सुई का कोण = 20 × 6° = 120°<br>घंटे की सुई का कोण = (7 × 30°) + (20 × 0.5°) = 210° + 10° = 220°</p><p class="solution">अंतर = 220° - 120° = 100°</p></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 9/20</div></div><h2 class="slide-title">समबहुभुज (Regular Polygons)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.36 10.36L12 .64 4.64 10.36 7.05 20h9.9l2.41-9.64zM12 3.48L16.95 11h-9.9L12 3.48zM8.91 18l-1.42-5.64h9.02L15.09 18H8.91z"/></svg></div><div class="text-content"><strong>समबहुभुज (Regular Polygon)</strong><p>ऐसा बहुभुज जिसकी सभी भुजाएं और सभी अंतः कोण बराबर हों।</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 9l4 12h14l4-12L12 2zm10 17H2.95l-3-9L12 4.5l9.05 4.5-3 9z"/></svg></div><div class="text-content"><strong>सम षट्भुज (Regular Hexagon)</strong><p>यह 6 समबाहु त्रिभुजों से मिलकर बनता है। क्षेत्रफल = 6 × (√3/4) × भुजा² = (3√3/2) × भुजा²।</p></div></li></ul></div><div class="infographics-panel"><div class="info-card"><h4>बहुभुज के महत्वपूर्ण सूत्र</h4><table class="mini-table"><thead><tr><th>गुण</th><th>सूत्र ('n' भुजाओं के लिए)</th></tr></thead><tbody><tr><td>प्रत्येक बाह्य कोण</td><td>360° / n</td></tr><tr><td>प्रत्येक अंतः कोण</td><td>180° - (360°/n)</td></tr><tr><td>अंतः कोणों का योग</td><td>(n-2) × 180°</td></tr><tr><td>विकर्णों की संख्या</td><td>n(n-3)/2</td></tr></tbody></table></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 10/20</div></div><h2 class="slide-title">पथ और बाड़ संबंधी प्रश्न (Paths & Fencing)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4v20h16V2zM6 4h12v2H6V4zm0 4h12v10H6V8zm2 2v6h8v-6H8z"/></svg></div><div class="text-content"><strong>बाहरी रास्ता (Outer Path)</strong><p>रास्ते का क्षेत्रफल = 2w(l+b+2w)</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4v16h16V4zm-2 14H6V6h12v12z"/></svg></div><div class="text-content"><strong>आंतरिक रास्ता (Inner Path)</strong><p>रास्ते का क्षेत्रफल = 2w(l+b-2w)</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 11V4h-2v7H4v2h7v7h2v-7h7v-2h-7z"/></svg></div><div class="text-content"><strong>बीच का रास्ता (Central Path)</strong><p>क्षेत्रफल = w(l+b-w)</p></div></li></ul></div><div class="infographics-panel"><div class="example-box"><h5>उदाहरण (Outer Path)</h5><p>20m × 15m के एक पार्क के बाहर 2.5m चौड़ा रास्ता है। रास्ते का क्षेत्रफल क्या होगा?</p><p>l=20, b=15, w=2.5</p><p class="solution">क्षेत्रफल = 2(2.5)(20+15+2(2.5)) = 5(35+5) = 5 × 40 = 200 m²</p></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 11/20</div></div><h2 class="slide-title">3डी की मूल अवधारणाएं (Basic 3D Concepts)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div><div class="text-content"><strong>आयतन (Volume)</strong><p>कोई 3D वस्तु जितनी जगह घेरती है, उसे आयतन कहते हैं। इसकी इकाई घन (cubic) होती है: cm³ or m³.</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8-8-3.59-8-8z"/></svg></div><div class="text-content"><strong>पृष्ठीय क्षेत्रफल (Surface Area)</strong><p>यह किसी 3D वस्तु की सभी सतहों का कुल क्षेत्रफल होता है। इसकी इकाई वर्ग (square) होती है: cm² or m².</p></div></li><li><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 13c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg></div><div class="text-content"><strong>LSA vs TSA</strong><p>LSA (पार्श्व) में ऊपरी और निचली सतह शामिल नहीं होती, जबकि TSA (कुल) में सभी सतहें शामिल होती हैं।</p></div></li></ul></div><div class="infographics-panel"><div class="info-card"><h4>यूलर का सूत्र (Euler's Formula)</h4><p>किसी भी बहुफलकीय (polyhedron) के लिए:</p><p style="text-align:center; font-weight:bold; font-size: 16px;">फलक (F) + शीर्ष (V) - किनारे (E) = 2</p></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 12/20</div></div><h2 class="slide-title">घन और घनाभ (Cube & Cuboid)</h2><div class="content-grid"><div class="main-content"><h4>घन (Cube)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>एक घन में 6 बराबर वर्गाकार फलक, 12 बराबर किनारे और 8 शीर्ष होते हैं। (जैसे पासा)</p></div></li></ul><div class="formula-card"><code>आयतन = a³</code><code>TSA = 6a²</code><code>विकर्ण = a√3</code></div></div><div class="main-content"><h4>घनाभ (Cuboid)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>एक घनाभ में 6 आयताकार फलक, 12 किनारे और 8 शीर्ष होते हैं। (जैसे ईंट)</p></div></li></ul><div class="formula-card"><code>आयतन = l×b×h</code><code>TSA = 2(lb+bh+hl)</code><code>विकर्ण = √(l²+b²+h²)</code></div></div></div><div class="bottom-strip"><strong>एडवांस कॉन्सेप्ट:</strong> n×n×n के एक रंगे हुए घन को 1×1×1 के छोटे घनों में काटने पर, केवल एक सतह रंगे घनों की संख्या = 6(n-2)² होती है।</div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 13/20</div></div><h2 class="slide-title">बेलन (Cylinder) - ठोस और खोखला</h2><div class="content-grid col-2"><div class="main-content"><h4>ठोस बेलन (Solid Cylinder)</h4><ul class="points-list"><li><div class="text-content"><strong>आयतन (Volume)</strong><p>आयतन = πr²h</p></div></li><li><div class="text-content"><strong>वक्र पृष्ठ (CSA)</strong><p>CSA = 2πrh</p></div></li><li><div class="text-content"><strong>कुल पृष्ठ (TSA)</strong><p>TSA = 2πr(h+r)</p></div></li></ul></div><div class="main-content"><h4>खोखला बेलन (Hollow Cylinder)</h4><ul class="points-list"><li><div class="text-content"><strong>आयतन (Volume)</strong><p>आयतन = π(R² - r²)h</p></div></li><li><div class="text-content"><strong>वक्र पृष्ठ (CSA)</strong><p>CSA = 2π(R+r)h</p></div></li><li><div class="text-content"><strong>कुल पृष्ठ (TSA)</strong><p>TSA = 2π(R+r)h + 2π(R²-r²)</p></div></li></ul></div></div><div class="example-box"><h5>उदाहरण (Cylinder)</h5><p>एक बेलनाकार टैंक की त्रिज्या 7m और ऊंचाई 3m है। उसकी क्षमता (आयतन) क्या है?</p><p class="solution">आयतन = (22/7) × 7² × 3 = 462 m³. (1 m³ = 1000 लीटर)</p></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 14/20</div></div><h2 class="slide-title">शंकु और छिन्नक (Cone & Frustum)</h2><div class="content-grid col-2"><div class="main-content"><h4>लंब वृत्तीय शंकु (Right Circular Cone)</h4><ul class="points-list"><li><div class="text-content"><strong>तिर्यक ऊँचाई (Slant Height, l)</strong><p>l² = h² + r² (पाइथागोरस प्रमेय)।</p></div></li><li><div class="text-content"><strong>आयतन (Volume)</strong><p>आयतन = (1/3)πr²h</p></div></li><li><div class="text-content"><strong>कुल पृष्ठ (TSA)</strong><p>TSA = πr(l+r)</p></div></li></ul></div><div class="main-content"><h4>शंकु का छिन्नक (Frustum of Cone)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>जब एक शंकु को उसके आधार के समानांतर काटा जाता है, तो छिन्नक बनता है (जैसे बाल्टी)।</p></div></li><li><div class="text-content"><strong>आयतन (Volume)</strong><p>आयतन = (1/3)πh(R² + r² + Rr)</p></div></li><li><div class="text-content"><strong>तिर्यक ऊँचाई (Slant Height, l)</strong><p>l = √[h² + (R-r)²]</p></div></li></ul></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 15/20</div></div><h2 class="slide-title">गोला और अर्धगोला (Sphere & Hemisphere)</h2><div class="content-grid"><div class="main-content"><h4>गोला (Sphere)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>गोला एक 3D वृत्ताकार वस्तु है। (जैसे गेंद)। इसका CSA और TSA बराबर होता है।</p></div></li></ul><div class="formula-card"><code>आयतन = (4/3)πr³</code><code>पृष्ठीय क्षेत्रफल = 4πr²</code></div></div><div class="main-content"><h4>अर्धगोला (Hemisphere)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>गोले का ठीक आधा हिस्सा। (जैसे कटोरा)। इसका CSA और TSA अलग-अलग होता है।</p></div></li></ul><div class="formula-card"><code>आयतन = (2/3)πr³</code><code>CSA = 2πr²</code><code>TSA = 3πr²</code></div></div></div><div class="bottom-strip"><strong>एडवांस कॉन्सेप्ट:</strong> गोलीय कोश (Spherical Shell) का आयतन = (4/3)π(R³ - r³).</div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 16/20</div></div><h2 class="slide-title">प्रिज्म और पिरामिड (Prism & Pyramid)</h2><div class="content-grid"><div class="main-content"><h4>प्रिज्म (Prism)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>इसका आधार और शीर्ष एक जैसे (सर्वांगसम) होते हैं। जैसा आधार, वैसा ही प्रिज्म (जैसे त्रिभुजाकार प्रिज्म)। बेलन भी एक प्रकार का वृत्ताकार प्रिज्म है।</p></div></li></ul><div class="formula-card" style="font-size:16px;"><code>आयतन = आधार का क्षेत्रफल × ऊँचाई</code><code>LSA = आधार का परिमाप × ऊँचाई</code></div></div><div class="main-content"><h4>पिरामिड (Pyramid)</h4><ul class="points-list"><li><div class="text-content"><strong>अवधारणा (Concept)</strong><p>इसका एक आधार होता है और सभी त्रिभुजाकार फलक एक शीर्ष पर मिलते हैं। (जैसे मिस्र के पिरामिड)। शंकु भी एक प्रकार का वृत्ताकार पिरामिड है।</p></div></li></ul><div class="formula-card" style="font-size:16px;"><code>आयतन = (1/3) × आधार का क्षेत्रफल × ऊँचाई</code><code>LSA = (1/2) × आधार का परिमाप × तिर्यक ऊँचाई</code></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 17/20</div></div><h2 class="slide-title">ठोसों का संयोजन और रूपांतरण (Combination & Conversion)</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="text-content"><strong>रूपांतरण का सिद्धांत</strong><p>जब एक ठोस को पिघलाकर दूसरा बनाया जाता है, तो उनका आयतन (Volume) हमेशा बराबर रहता है, लेकिन पृष्ठीय क्षेत्रफल बदल जाता है।</p></div></li><li><div class="text-content"><strong>संयोजन का सिद्धांत</strong><p>जब दो ठोसों को जोड़ा जाता है (जैसे तंबू), तो कुल आयतन दोनों के आयतनों का योग होता है। कुल पृष्ठीय क्षेत्रफल निकालते समय, केवल बाहरी (दिखने वाली) सतहों को ही जोड़ा जाता है।</p></div></li></ul></div><div class="infographics-panel"><div class="example-box"><h5>उदाहरण (Conversion)</h5><p>6cm त्रिज्या वाले एक गोले को पिघलाकर 2cm त्रिज्या वाली कितनी गोलियां बनाई जा सकती हैं?</p><p class="solution">गोलियों की संख्या = (बड़े गोले का आयतन) / (छोटी गोली का आयतन) = [(4/3)π(6³)] / [(4/3)π(2³)] = 216/8 = 27 गोलियां।</p></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 18/20</div></div><h2 class="slide-title">SSC CGL/CPO: पिछले वर्ष के प्रश्नों का विश्लेषण</h2><div class="content-grid col-2"><div class="main-content"><ul class="points-list"><li><div class="text-content"><strong>सबसे महत्वपूर्ण टॉपिक</strong><p>SSC की परीक्षाओं में बेलन, शंकु, गोला और घन/घनाभ से लगभग 70-80% प्रश्न पूछे जाते हैं।</p></div></li><li><div class="text-content"><strong>कठिनाई का स्तर</strong><p>प्रीलिम्स में प्रश्न सीधे सूत्र पर आधारित होते हैं, जबकि मेन्स में गणना थोड़ी मुश्किल और कॉन्सेप्ट आधारित हो सकती है।</p></div></li><li><div class="text-content"><strong>ट्रेंडिंग प्रश्न प्रकार</strong><p>आजकल ठोसों के रूपांतरण (पिघलाने वाले) और संयोजन (जोड़ने वाले) के अलावा छिन्नक (Frustum) पर आधारित प्रश्न भी पूछे जा रहे हैं।</p></div></li></ul></div><div class="infographics-panel"><div class="info-card"><h4>Topic Weightage (Approx.)</h4><div style="font-size:14px; margin-top:10px;"><p>Cylinder/Cone/Sphere: <span style="display:inline-block; background:var(--brand-orange); height:15px; width:60%; border-radius:3px;"></span> 60%</p><p>Cube/Cuboid: <span style="display:inline-block; background:var(--brand-orange); height:15px; width:25%; border-radius:3px;"></span> 25%</p><p>2D Shapes & Others: <span style="display:inline-block; background:var(--brand-orange); height:15px; width:15%; border-radius:3px;"></span> 15%</p></div></div></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 19/20</div></div><h2 class="slide-title">शॉर्टकट और सामान्य गलतियाँ (Shortcuts & Mistakes)</h2><div class="content-grid col-2"><div class="main-content"><h4>स्मार्ट तरीके (Shortcuts)</h4><ul class="points-list"><li><div class="text-content"><strong>पाइथागोरस त्रिक (Triplets)</strong><p>शंकु और पिरामिड के सवालों में (3,4,5), (5,12,13), (8,15,17), (7,24,25) जैसे त्रिक याद रखें, इससे ऊंचाई/तिर्यक ऊंचाई जल्दी निकलेगी।</p></div></li><li><div class="text-content"><strong>π का मान 22/7</strong><p>यदि त्रिज्या या ऊंचाई 7 का गुणज है, तो π का मान 22/7 का उपयोग करें। इससे गणना बहुत आसान हो जाती है।</p></div></li></ul></div><div class="main-content"><h4>आम गलतियाँ (Mistakes)</h4><ul class="points-list"><li><div class="text-content"><strong>त्रिज्या vs व्यास (Radius vs Diameter)</strong><p>सवाल में व्यास (diameter) दिए होने पर उसे आधा करके त्रिज्या (radius) निकालना न भूलें। यह सबसे आम गलती है।</p></div></li><li><div class="text-content"><strong>CSA vs TSA</strong><p>सवाल ध्यान से पढ़ें कि वक्र पृष्ठ (CSA) पूछा गया है या कुल पृष्ठ (TSA)। अर्धगोले में यह गलती सबसे ज्यादा होती है।</p></div></li></ul></div></div></div></section>
-    <section class="slide"><div class="slide-container"><div class="slide-header"><div class="brand-logo">Prepe</div><div class="slide-number">Slide 20/20</div></div><h2 class="slide-title">त्वरित पुनरावृत्ति (Quick Revision Formula Sheet)</h2><div class="content-grid"><div class="main-content"><h4>2D आकृतियाँ (2D Shapes)</h4><table class="mini-table"><thead><tr><th>आकृति</th><th>क्षेत्रफल</th><th>परिमाप</th></tr></thead><tbody><tr><td>वर्ग</td><td>भुजा²</td><td>4 × भुजा</td></tr><tr><td>आयत</td><td>l × b</td><td>2(l+b)</td></tr><tr><td>वृत्त</td><td>πr²</td><td>2πr</td></tr><tr><td>समचतुर्भुज</td><td>½ × d₁ × d₂</td><td>4 × भुजा</td></tr><tr><td>सम षट्भुज</td><td>(3√3/2) × भुजा²</td><td>6 × भुजा</td></tr></tbody></table></div><div class="main-content"><h4>3D आकृतियाँ (3D Shapes)</h4><table class="mini-table"><thead><tr><th>आकृति</th><th>आयतन</th><th>CSA / LSA</th><th>TSA</th></tr></thead><tbody><tr><td>घन</td><td>a³</td><td>4a²</td><td>6a²</td></tr><tr><td>घनाभ</td><td>lbh</td><td>2(l+b)h</td><td>2(lb+bh+hl)</td></tr><tr><td>बेलन</td><td>πr²h</td><td>2πrh</td><td>2πr(h+r)</td></tr><tr><td>शंकु</td><td>⅓πr²h</td><td>πrl</td><td>πr(l+r)</td></tr><tr><td>गोला</td><td>(4/3)πr³</td><td>4πr²</td><td>4πr²</td></tr><tr><td>अर्धगोला</td><td>(2/3)πr³</td><td>2πr²</td><td>3πr²</td></tr></tbody></table></div></div><div class="bottom-strip"><strong>शुभकामनाएं!</strong> इन सभी सूत्रों को अच्छी तरह से दोहरा लें।</div></div></section>
-
     <script>
-        window.onscroll = function() { updateProgressBar() };
-        function updateProgressBar() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        }
+        // Progress bar script to show scroll progress
+        window.onscroll = function() {
+            const progressBar = document.getElementById("progress-bar");
+            const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = progress + "%";
+        };
     </script>
+
 </body>
 </html>
 
