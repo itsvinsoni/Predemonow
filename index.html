@@ -35,7 +35,7 @@
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background-color: #f8fafc;
             color: var(--text-dark);
-            line-height: 1.8;
+            line-height: 1.7; /* Adjusted for better readability */
         }
 
         #progress-bar {
@@ -63,7 +63,7 @@
             min-height: auto;
             height: auto;
             width: 100%;
-            padding: 40px;
+            padding: 30px; /* Adjusted padding */
             margin-bottom: 25px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
             display: flex;
@@ -82,20 +82,20 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding-bottom: 15px; /* Adjusted padding */
+            margin-bottom: 25px; /* Adjusted margin */
         }
         .slide-header .brand {
-            font-size: 28px;
+            font-size: 24px; /* Adjusted font size */
             font-weight: 900;
             color: var(--orange);
         }
         .slide-header .slide-number {
-            font-size: 16px;
+            font-size: 14px; /* Adjusted font size */
             font-weight: 600;
             color: var(--text-light);
             background: #f3f4f6;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 999px;
         }
 
@@ -103,7 +103,7 @@
             width: 100%;
             flex-grow: 1;
             display: grid;
-            gap: 30px;
+            gap: 25px; /* Adjusted gap */
         }
         
         .hero-slide {
@@ -112,16 +112,16 @@
             background: linear-gradient(145deg, var(--orange-light), #fff, #fff);
         }
         .hero-slide h1 {
-            font-size: 60px;
+            font-size: 52px; /* Adjusted font size */
             font-weight: 900;
             color: var(--text-dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: fadeInDown 1s ease-out;
         }
         .hero-slide .subtitle {
-            font-size: 22px;
+            font-size: 20px; /* Adjusted font size */
             color: var(--text-light);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
@@ -130,7 +130,7 @@
         
         .fact-tile {
             background: var(--bg-white);
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 12px;
             font-weight: 600;
             border: 1px solid var(--border-color);
@@ -143,19 +143,19 @@
         }
 
         .scroll-cta {
-            margin-top: 30px;
-            font-size: 18px;
+            margin-top: 25px;
+            font-size: 16px; /* Adjusted font size */
             font-weight: 600;
             color: var(--orange-dark);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             animation: bounce 2s infinite;
         }
-        .scroll-cta svg { width: 28px; height: 28px; }
+        .scroll-cta svg { width: 24px; height: 24px; }
 
         h2.slide-title {
-            font-size: 40px;
+            font-size: 32px; /* Adjusted font size */
             font-weight: 800;
             margin: 0;
             color: var(--text-dark);
@@ -163,37 +163,37 @@
         }
         
         h3, h4 {
-            font-size: 26px;
+            font-size: 24px; /* Adjusted font size */
             font-weight: 700;
             color: var(--orange-dark);
-            margin-bottom: 20px;
-            border-left: 5px solid var(--orange);
-            padding-left: 15px;
+            margin-bottom: 15px; /* Adjusted margin */
+            border-left: 4px solid var(--orange);
+            padding-left: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         h4 {
-            font-size: 22px;
+            font-size: 20px; /* Adjusted font size */
             color: var(--text-dark);
             border-left-color: var(--blue);
         }
         
         ul { list-style: none; padding: 0; }
         ul li {
-            padding-left: 28px;
+            padding-left: 25px; /* Adjusted padding */
             position: relative;
-            margin-bottom: 15px;
-            font-size: 17px;
+            margin-bottom: 12px; /* Adjusted margin */
+            font-size: 16px; /* Adjusted font size */
             color: var(--text-light);
         }
         ul li::before {
             content: '•';
             position: absolute;
-            left: 10px;
+            left: 8px; /* Adjusted position */
             color: var(--orange);
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px; /* Adjusted font size */
             line-height: 1;
         }
         li strong {
@@ -205,7 +205,7 @@
             background: #fdfdff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             height: 100%;
             border-top: 4px solid var(--orange);
         }
@@ -215,7 +215,7 @@
             border: 1px solid var(--blue);
             border-radius: 8px;
             padding: 20px;
-            margin-top: 25px;
+            margin-top: 20px;
             border-left: 5px solid var(--blue);
         }
         .pro-tip-box {
@@ -227,7 +227,10 @@
             color: #1e40af;
             border: none;
             padding-left: 0;
-            font-size: 20px;
+            font-size: 18px; /* Adjusted font size */
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .pro-tip-box h4 {
             color: #15803d;
@@ -238,24 +241,24 @@
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 16px;
-            margin-top: 20px;
+            font-size: 15px; /* Adjusted font size */
+            margin-top: 15px;
         }
         .comparison-table th, .comparison-table td {
             border: 1px solid var(--border-color);
-            padding: 15px;
+            padding: 12px;
             text-align: left;
             vertical-align: top;
         }
         .comparison-table th {
             background-color: var(--orange-light);
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
             color: var(--orange-dark);
         }
         .comparison-table tr:hover { background-color: #f9fafb; }
         
-        .grid-2-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;}
+        .grid-2-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;}
 
         /* Section Specific Colors */
         .hypoxia-section .info-card { border-top-color: var(--blue); }
@@ -272,6 +275,17 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .slide { padding: 20px; }
+            h2.slide-title { font-size: 28px; }
+            h3 { font-size: 22px; }
+            h4 { font-size: 18px; }
+            ul li, .comparison-table { font-size: 15px; }
+            .hero-slide h1 { font-size: 40px; }
+            .hero-slide .subtitle { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
